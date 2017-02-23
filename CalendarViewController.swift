@@ -1,4 +1,4 @@
-//
+//  カレンダーを表示するView
 //  CalendarViewController.swift
 //  Kiroku
 //
@@ -8,12 +8,32 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController {
+//CALayerクラスのインポート
+import QuartzCore
 
+class CalendarViewController: UIViewController{
+    
+    //TableViewの宣言
+    @IBOutlet var tableView : UITableView!
+
+    //UserDefaultsの設定
+    var memoArray: [AnyObject] = []
+    let saveData = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //TableViewCellを使えるようにする
+        tableView.register(UINib(nibName: "MemoTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+
+        //取り出すための
+        if saveData.array(forKey: "MEMO") != nil {
+            memoArray = saveData.array(forKey: "MEMO")! as [AnyObject]
+        }
+        tableView.delegate? = self as! UITableViewDelegate
+        tableView.dataSource? = self as! UITableViewDataSource
+        
+        self.view.addSubview(tableView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +41,41 @@ class CalendarViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //Cellの数を設定する
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return memoArray.count
+    }
+    //
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MemoTableViewCell
+        
+        //WordList見て直し
+        //ID付きのセルを取得する memoArrayから取り出す
+        let nowIndexPathDictionary: (AnyObject) =  memoArray[indexPath.row]
+        
+        cell.MemoLabel.text = nowIndexPathDictionary["memo"] as? String
+        cell.DateLabel.text = nowIndexPathDictionary["date"] as? String
+        
+        return cell
+    }
+
+    
+    //セルが押されたときに呼ばれる
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if saveData.array(forKey: "MEMO") != nil {
+            memoArray = saveData.array(forKey: "MEMO")! as [AnyObject]
+            
+        }
+        
+        tableView.reloadData()
+    }
+
 
     /*
     // MARK: - Navigation

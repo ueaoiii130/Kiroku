@@ -1,4 +1,4 @@
-//
+//  記録するかカレンダーを見るか選ぶView
 //  SecondViewController.swift
 //  Kiroku
 //
@@ -10,6 +10,11 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    
+    @IBOutlet var kiroku : UIButton!
+    @IBOutlet var toCalendar : UIButton!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

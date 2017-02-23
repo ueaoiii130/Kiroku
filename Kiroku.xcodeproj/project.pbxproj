@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		582517D61E59AF0D00FE112C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582517D51E59AF0D00FE112C /* SecondViewController.swift */; };
+		582517D81E59AF2D00FE112C /* KirokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582517D71E59AF2D00FE112C /* KirokuViewController.swift */; };
+		582517DA1E59B11500FE112C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582517D91E59B11500FE112C /* CalendarViewController.swift */; };
+		588E21181E5D8414001E5F5C /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */; };
+		588E21191E5D8414001E5F5C /* MemoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */; };
 		58F8FF4E1E54794400BE0BEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F8FF4D1E54794400BE0BEF /* AppDelegate.swift */; };
 		58F8FF501E54794400BE0BEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F8FF4F1E54794400BE0BEF /* ViewController.swift */; };
 		58F8FF531E54794400BE0BEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F8FF511E54794400BE0BEF /* Main.storyboard */; };
@@ -26,6 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		582517D51E59AF0D00FE112C /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		582517D71E59AF2D00FE112C /* KirokuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirokuViewController.swift; sourceTree = "<group>"; };
+		582517D91E59B11500FE112C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
+		588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoTableViewCell.xib; sourceTree = "<group>"; };
 		58F8FF4A1E54794400BE0BEF /* Kiroku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiroku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F8FF4D1E54794400BE0BEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58F8FF4F1E54794400BE0BEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +69,11 @@
 		58F8FF411E54794400BE0BEF = {
 			isa = PBXGroup;
 			children = (
+				582517D91E59B11500FE112C /* CalendarViewController.swift */,
+				582517D71E59AF2D00FE112C /* KirokuViewController.swift */,
+				582517D51E59AF0D00FE112C /* SecondViewController.swift */,
+				588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */,
+				588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */,
 				58F8FF4C1E54794400BE0BEF /* Kiroku */,
 				58F8FF611E54794400BE0BEF /* KirokuUITests */,
 				58F8FF4B1E54794400BE0BEF /* Products */,
@@ -77,9 +92,9 @@
 		58F8FF4C1E54794400BE0BEF /* Kiroku */ = {
 			isa = PBXGroup;
 			children = (
+				58F8FF511E54794400BE0BEF /* Main.storyboard */,
 				58F8FF4D1E54794400BE0BEF /* AppDelegate.swift */,
 				58F8FF4F1E54794400BE0BEF /* ViewController.swift */,
-				58F8FF511E54794400BE0BEF /* Main.storyboard */,
 				58F8FF541E54794400BE0BEF /* Assets.xcassets */,
 				58F8FF561E54794400BE0BEF /* LaunchScreen.storyboard */,
 				58F8FF591E54794400BE0BEF /* Info.plist */,
@@ -184,6 +199,7 @@
 				58F8FF581E54794400BE0BEF /* LaunchScreen.storyboard in Resources */,
 				58F8FF551E54794400BE0BEF /* Assets.xcassets in Resources */,
 				58F8FF531E54794400BE0BEF /* Main.storyboard in Resources */,
+				588E21191E5D8414001E5F5C /* MemoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +217,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582517DA1E59B11500FE112C /* CalendarViewController.swift in Sources */,
+				588E21181E5D8414001E5F5C /* MemoTableViewCell.swift in Sources */,
+				582517D61E59AF0D00FE112C /* SecondViewController.swift in Sources */,
+				582517D81E59AF2D00FE112C /* KirokuViewController.swift in Sources */,
 				58F8FF501E54794400BE0BEF /* ViewController.swift in Sources */,
 				58F8FF4E1E54794400BE0BEF /* AppDelegate.swift in Sources */,
 			);
@@ -341,6 +361,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = UZZ5WC8E2Y;
 				INFOPLIST_FILE = Kiroku/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -354,6 +375,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = UZZ5WC8E2Y;
 				INFOPLIST_FILE = Kiroku/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -410,6 +432,7 @@
 				58F8FF691E54794400BE0BEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		58F8FF6A1E54794400BE0BEF /* Build configuration list for PBXNativeTarget "KirokuUITests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +441,7 @@
 				58F8FF6C1E54794400BE0BEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
