@@ -11,7 +11,7 @@ import UIKit
 //CALayerクラスのインポート
 import QuartzCore
 
-class CalendarViewController: UIViewController{
+class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //TableViewの宣言
     @IBOutlet var tableView : UITableView!
@@ -72,10 +72,8 @@ class CalendarViewController: UIViewController{
         if saveData.array(forKey: "MEMO") != nil {
             memoArray = saveData.array(forKey: "MEMO")! as [AnyObject]
         }
-        tableView.delegate? = self as! UITableViewDelegate
-        tableView.dataSource? = self as! UITableViewDataSource
-        
-        self.view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
         
         //カレンダー用
         // 色を変数に用意しておく
