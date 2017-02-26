@@ -17,14 +17,14 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var tableView : UITableView!
 
     //UserDefaultsの設定
-    var memoArray: [AnyObject] = []
+    var memoArray: [[String: String]] = []
     let saveData = UserDefaults.standard
     
     
     //カレンダーの部品の宣言
     //メンバ変数の設定（配列格納用）
     var count: Int!
-    var mArray: NSMutableArray!
+    var buttonArray: [UIButton] = []
     
     //メンバ変数の設定（カレンダー用）
     var now: Date!
@@ -70,7 +70,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 
         //取り出すための
         if saveData.array(forKey: "MEMO") != nil {
-            memoArray = saveData.array(forKey: "MEMO")! as [AnyObject]
+            memoArray = saveData.array(forKey: "MEMO")! as! [[String: String]]
         }
         tableView.delegate = self
         tableView.dataSource = self
@@ -197,14 +197,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         dayOfWeek = orgDayOfWeek
         maxDay    = max
         
-        //空の配列を作成する（カレンダーデータの格納用）
-        mArray = NSMutableArray()
         
         //曜日ラベル初期定義
         let monthName:[String] = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
         
         //曜日ラベルを動的に配置
-        setupCalendarLabel(monthName as NSArray)
+        setupCalendarLabel(monthName)
         
         //初期表示時のカレンダーをセットアップする
         setupCurrentCalendar()
@@ -213,11 +211,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        tableView.reloadData()
-
     }
+    
     //曜日ラベルの動的配置関数
-    func setupCalendarLabel(_ array: NSArray) {
+    func setupCalendarLabel(_ array: [String]) {
         
         let calendarLabelCount = 7
         
@@ -259,7 +256,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             }
             
             //曜日ラベルの配置
-            calendarBaseLabel.text = String(array[i] as! NSString)
+            calendarBaseLabel.text = String(array[i])
             calendarBaseLabel.textAlignment = NSTextAlignment.center
             calendarBaseLabel.font = UIFont(name: "System", size: CGFloat(calendarLabelFontSize))
             self.view.addSubview(calendarBaseLabel)
@@ -283,8 +280,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             //配置場所の定義
             let positionX   = calendarIntervalX + calendarX * (i % 7)
             let positionY   = calendarIntervalY + calendarY * (i / 7)
-            let buttonSizeX = calendarSize;
-            let buttonSizeY = calendarSize;
+            let buttonSizeX = calendarSize
+            let buttonSizeY = calendarSize
             
             //ボタンをつくる
             let button: UIButton = UIButton()
@@ -293,20 +290,35 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
                 y: positionY,
                 width: buttonSizeX!,
                 height: buttonSizeY!
-            );
+            )
+            //ボタンのデザインを決定する
+            button.backgroundColor = calendarBackGroundColor
+            button.setTitleColor(UIColor.white, for: .normal)
+            button.titleLabel!.font = UIFont(name: "System", size: CGFloat(calendarFontSize))
+            button.layer.cornerRadius = CGFloat(buttonRadius)
             
             //ボタンの初期設定をする
             if i < dayOfWeek - 1 {
                 
                 //日付の入らない部分はボタンを押せなくする
-                button.setTitle("", for: UIControlState())
+                button.setTitle("", for: .normal)
                 button.isEnabled = false
                 holidayFlag = false
                 
             } else if i == dayOfWeek - 1 || i < dayOfWeek + maxDay - 1 {
                 
                 //日付の入る部分はボタンのタグを設定する（日にち）
-                button.setTitle(String(tagNumber), for: UIControlState())
+                button.setTitle(String(tagNumber), for: .normal)
+                let dateString: String = "\(self.year!)年" + String(format: "%02d", self.month!) + "月" + String(format: "%02d", tagNumber) + "日"
+                
+                if memoArray.index(where: { (memoDictionary) -> Bool in
+                    
+                    let date = memoDictionary["date"]!
+                    return date == dateString
+                }) != nil {
+                    
+                    button.setTitleColor(.orange, for: .normal)
+                }
                 
                 //祝祭日の判定を行う
                 holidayFlag = holidayObject.judgeJapaneseHoliday(year, month: month, day: tagNumber)
@@ -317,7 +329,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             } else if i == dayOfWeek + maxDay - 1 || i < total {
                 
                 //日付の入らない部分はボタンを押せなくする
-                button.setTitle("", for: UIControlState())
+                button.setTitle("", for: .normal)
                 button.isEnabled = false
                 holidayFlag = false
             }
@@ -326,29 +338,21 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             //日曜日または祝祭日(振替休日) => 赤色, 土曜日 => 青色, 平日 => グレー色
             //@remark:このサンプルでは正円のボタンを作っていますが、背景画像の設定等も可能です。
             if i % 7 == 0 || holidayFlag == true {
-                calendarBackGroundColor = UIColor(
-                    red: CGFloat(0.831), green: CGFloat(0.349), blue: CGFloat(0.224), alpha: CGFloat(1.0)
-                )
+                calendarBackGroundColor = UIColor(red: 0.831, green: 0.349, blue: 0.224, alpha: 1.0)
             } else if i % 7 == 6 {
-                calendarBackGroundColor = UIColor(
-                    red: CGFloat(0.400), green: CGFloat(0.471), blue: CGFloat(0.980), alpha: CGFloat(1.0)
-                )
+                calendarBackGroundColor = UIColor(red: 0.400, green: 0.471, blue: 0.980, alpha: 1.0)
             } else {
                 calendarBackGroundColor = UIColor.lightGray
             }
             
-            //ボタンのデザインを決定する
-            button.backgroundColor = calendarBackGroundColor
-            button.setTitleColor(UIColor.white, for: UIControlState())
-            button.titleLabel!.font = UIFont(name: "System", size: CGFloat(calendarFontSize))
-            button.layer.cornerRadius = CGFloat(buttonRadius)
+            
             
             //配置したボタンに押した際のアクションを設定する
             button.addTarget(self, action: #selector(CalendarViewController.buttonTapped(_:)), for: .touchUpInside)
             
             //ボタンを配置する
             self.view.addSubview(button)
-            mArray.add(button)
+            buttonArray.append(button)
         }
         
     }
@@ -450,12 +454,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     func removeCalendarButtonObject() {
         
         //ビューからボタンオブジェクトを削除する
-        for i in 0..<mArray.count {
-            (mArray[i] as AnyObject).removeFromSuperview()
+        for i in buttonArray {
+            i.removeFromSuperview()
         }
         
         //配列に格納したボタンオブジェクトも削除する
-        mArray.removeAllObjects()
+        buttonArray.removeAll()
     }
     
     //現在のカレンダーをセットアップする関数
@@ -527,10 +531,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         //WordList見て直し
         //ID付きのセルを取得する memoArrayから取り出す
-        let nowIndexPathDictionary: (AnyObject) =  memoArray[indexPath.row]
+        let nowIndexPathDictionary: [String: String] =  memoArray[indexPath.row]
         
-        cell.MemoLabel.text = nowIndexPathDictionary["memo"] as? String
-        cell.DateLabel.text = nowIndexPathDictionary["date"] as? String
+        cell.MemoLabel.text = nowIndexPathDictionary["memo"]
+        cell.DateLabel.text = nowIndexPathDictionary["date"]
         
         return cell
     }
@@ -543,7 +547,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if saveData.array(forKey: "MEMO") != nil {
-            memoArray = saveData.array(forKey: "MEMO")! as [AnyObject]
+            memoArray = saveData.array(forKey: "MEMO")! as! [[String: String]]
             
         }
         
