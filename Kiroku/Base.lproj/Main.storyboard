@@ -187,11 +187,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taV-Dv-NyH">
+                                <rect key="frame" x="0.0" y="56" width="375" height="43"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejz-jZ-mLV">
+                                <rect key="frame" x="8" y="370" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <action selector="getPrevMonthData:" destination="UDu-4a-0oi" eventType="touchUpInside" id="0fR-hZ-CNc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPa-Y7-7t9">
+                                <rect key="frame" x="336" y="370" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="getNextMonthData:" destination="UDu-4a-0oi" eventType="touchUpInside" id="9BN-db-OYE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="hdz-u8-Z5j" id="eOk-7t-L3y"/>
+                        <outlet property="calendarBar" destination="taV-Dv-NyH" id="BS7-T9-h7W"/>
+                        <outlet property="nextMonthButton" destination="RPa-Y7-7t9" id="k3H-Qs-IX7"/>
+                        <outlet property="prevMonthButton" destination="Ejz-jZ-mLV" id="1Zq-ZR-H3h"/>
+                        <outlet property="tableView" destination="hdz-u8-Z5j" id="Ghp-Ka-yTJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ncr-Cx-uB7" userLabel="First Responder" sceneMemberID="firstResponder"/>

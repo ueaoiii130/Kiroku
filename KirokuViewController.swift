@@ -16,10 +16,6 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet var MemoTextField: UITextField!
     @IBOutlet var DateTextField: UITextField!
     @IBOutlet var OKButton: UIButton!
-    
-    
-    //TableViewの宣言
-    @IBOutlet var tableView : UITableView!
 
     //UserDefaultsの設定
     var memoArray: [AnyObject] = []
@@ -39,11 +35,9 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
 
         //取り出すための
-//        if saveData.array(forKey: "MEMO") != nil {
-//            memoArray = saveData.array(forKey: "MEMO")! as [AnyObject]
-//            
-//        }
-        
+        if saveData.array(forKey: "MEMO") != nil {
+            memoArray = saveData.array(forKey: "MEMO")! as [AnyObject]
+        }
         
         //日付フィールドの設定
         dateFormat.dateFormat = "yyyy年MM月dd日"
@@ -60,44 +54,27 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
         //ツールバーの位置を指定
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        
         toolBar.tintColor = UIColor.white
         toolBar.backgroundColor = UIColor.black
+        //キーボード、ピッカーにくっつく
+        DateTextField.inputAccessoryView = toolBar
+        MemoTextField.inputAccessoryView = toolBar
 
         //ツールバーにボタンを表示
         let toolBarButton = UIBarButtonItem(title: "OK", style: .done, target: self, action: #selector(KirokuViewController.doneButton))
         toolBar.items = [toolBarButton]
-        DateTextField.inputAccessoryView = toolBar
-        MemoTextField.inputAccessoryView = toolBar
         
         //ボタンの設定
         //右寄せのためのスペース設定
          _ = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace,target: self,action: nil)
         toolBar.sizeToFit()
 
-        //キーボード、ぴっかーについてくる
-        MemoTextField.inputAccessoryView = toolBar
-        DateTextField.inputAccessoryView = toolBar
-        
-//        //画面タップでキーボードを隠す
-//        let singleTap = UITapGestureRecognizer(target: self, action: #selector(KirokuViewController.onTap(_:)))
-//        singleTap.numberOfTapsRequired = 1
-//        view.addGestureRecognizer(singleTap)
- 
-        }
-    
+    }
     
     //タップで隠す
     func onTap (_ recognizer:UIPanGestureRecognizer){
         MemoTextField.resignFirstResponder()
         DateTextField.resignFirstResponder()
-    }
-
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //toolbarのdoneボタン
@@ -116,15 +93,10 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
         self.view.endEditing(true)
     }
     
-    
-    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-//        return cell!
-//        cell.dateLabel.text =
-//    }
-    
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     //保存ボタンが呼ばれたときに
     @IBAction func save() {

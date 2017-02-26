@@ -10,6 +10,7 @@
 		582517D61E59AF0D00FE112C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582517D51E59AF0D00FE112C /* SecondViewController.swift */; };
 		582517D81E59AF2D00FE112C /* KirokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582517D71E59AF2D00FE112C /* KirokuViewController.swift */; };
 		582517DA1E59B11500FE112C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582517D91E59B11500FE112C /* CalendarViewController.swift */; };
+		5857176E1E62E41E000DDAF3 /* CalendarLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857176D1E62E41E000DDAF3 /* CalendarLogic.swift */; };
 		588E21181E5D8414001E5F5C /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */; };
 		588E21191E5D8414001E5F5C /* MemoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */; };
 		58F8FF4E1E54794400BE0BEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F8FF4D1E54794400BE0BEF /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 		582517D51E59AF0D00FE112C /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		582517D71E59AF2D00FE112C /* KirokuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirokuViewController.swift; sourceTree = "<group>"; };
 		582517D91E59B11500FE112C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		5857176D1E62E41E000DDAF3 /* CalendarLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLogic.swift; sourceTree = "<group>"; };
 		588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
 		588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoTableViewCell.xib; sourceTree = "<group>"; };
 		58F8FF4A1E54794400BE0BEF /* Kiroku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiroku.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 		58F8FF411E54794400BE0BEF = {
 			isa = PBXGroup;
 			children = (
+				5857176D1E62E41E000DDAF3 /* CalendarLogic.swift */,
 				582517D91E59B11500FE112C /* CalendarViewController.swift */,
 				582517D71E59AF2D00FE112C /* KirokuViewController.swift */,
 				582517D51E59AF0D00FE112C /* SecondViewController.swift */,
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5857176E1E62E41E000DDAF3 /* CalendarLogic.swift in Sources */,
 				582517DA1E59B11500FE112C /* CalendarViewController.swift in Sources */,
 				588E21181E5D8414001E5F5C /* MemoTableViewCell.swift in Sources */,
 				582517D61E59AF0D00FE112C /* SecondViewController.swift in Sources */,
