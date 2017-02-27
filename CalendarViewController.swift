@@ -310,7 +310,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
                 //日付の入る部分はボタンのタグを設定する（日にち）
                 button.setTitle(String(tagNumber), for: .normal)
                 
-                // 検索をかけるためにfor文に合せて、「〇〇年△△月□□日」という文字列を生成
+                // 検索をかけるためにfor文に合せて、「〇〇年△△月□□日」という文字列を生成。
+                // String(format: "%2d", self.month)としているのは、1月など1ケタの月のときに、01月という表記にするため
                 let dateString: String = "\(self.year!)年" + String(format: "%02d", self.month!) + "月" + String(format: "%02d", tagNumber) + "日"
                 
                 /* 
