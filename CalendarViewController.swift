@@ -309,8 +309,26 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
                 
                 //日付の入る部分はボタンのタグを設定する（日にち）
                 button.setTitle(String(tagNumber), for: .normal)
+                
+                // 検索をかけるためにfor文に合せて、「〇〇年△△月□□日」という文字列を生成
                 let dateString: String = "\(self.year!)年" + String(format: "%02d", self.month!) + "月" + String(format: "%02d", tagNumber) + "日"
                 
+                /* 
+                 memoArrayの要素一つ一つをmemoDisctionaryとして取り出して、memoDictionaryの'date'というキーに対応する値を'date'として定数に格納する。
+                 そして、'dateString'と'date'が一致して、trueが返ってくる要素の番号が'nil'ではなくて、存在するときという条件をif文で書いて、存在するときにボタンの文字色を変えている
+                 
+                 例えば、
+                 let array: [Int] = [54, 36, 72, 88, 11]
+                 と宣言したあとに、
+                 let index = array.index(where: { (element) -> Bool in
+                    return element == 11
+                 })
+                 とすると、indexの値は、4になる
+                 let index2 = array.index(where: { (element) -> Bool in
+                    return element == 100
+                 })
+                 とすると、index2の値はarrayのなかに、100と一致する要素がないので、'nil'になる
+                */
                 if memoArray.index(where: { (memoDictionary) -> Bool in
                     
                     let date = memoDictionary["date"]!
