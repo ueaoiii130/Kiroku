@@ -17,15 +17,14 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var tableView : UITableView!
 
     //UserDefaultsの設定
-    var memoArray: [AnyObject] = []
+    var memoArray: [[String:String]] = []
     let saveData = UserDefaults.standard
     
     
     //カレンダーの部品の宣言
     //メンバ変数の設定（配列格納用）
     var count: Int!
-    var mArray: NSMutableArray!
-    
+    var buttonArray: [UIButton] = []
     //メンバ変数の設定（カレンダー用）
     var now: Date!
     var year: Int!
@@ -70,7 +69,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 
         //取り出すための
         if saveData.array(forKey: "MEMO") != nil {
-            memoArray = saveData.array(forKey: "MEMO")! as [AnyObject]
+            memoArray = saveData.array(forKey: "MEMO")! as [String:String]
         }
         tableView.delegate = self
         tableView.dataSource = self
@@ -302,7 +301,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
                 button.setTitle("", for: UIControlState())
                 button.isEnabled = false
                 holidayFlag = false
-                
+                    
             } else if i == dayOfWeek - 1 || i < dayOfWeek + maxDay - 1 {
                 
                 //日付の入る部分はボタンのタグを設定する（日にち）
