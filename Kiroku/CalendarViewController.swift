@@ -180,11 +180,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         comps = (calendar as NSCalendar).components([.year, .month, .day, .weekday],from: now)
         
         //年月日と最後の日付と曜日を取得(NSIntegerをintへのキャスト不要)
-        let orgYear: NSInteger      = comps.year!
-        let orgMonth: NSInteger     = comps.month!
-        let orgDay: NSInteger       = comps.day!
-        let orgDayOfWeek: NSInteger = comps.weekday!
-        let max: NSInteger          = range.length
+        let orgYear = comps.year!
+        let orgMonth = comps.month!
+        let orgDay = comps.day!
+        let orgDayOfWeek = comps.weekday!
+        let max = range.length
         
         year      = orgYear
         month     = orgMonth
@@ -356,7 +356,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             }
   
             //配置したボタンに押した際のアクションを設定する
-            button.addTarget(self, action: #selector(CalendarViewController.buttonTapped(_:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
             
             //ボタンを配置する
             self.view.addSubview(button)
@@ -387,7 +387,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
          * yyyy年mm月1日のデータを作成する。
          * 後述の関数 setupPrevCalendarData, setupNextCalendarData も同様です。
          *************/
-        let currentCalendar: Calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        let currentCalendar: Calendar = Calendar(identifier: .gregorian)
         var currentComps: DateComponents = DateComponents()
         
         currentComps.year  = year

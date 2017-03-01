@@ -24,9 +24,6 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
     let nowDate = Date()
     let dateFormat = DateFormatter()
     let inputDatePicker = UIDatePicker()
-    
-    //キーパッドのツールバー
-    var toolBar:UIToolbar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +66,7 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
     }
     
     //タップで隠す
-    func onTap (_ recognizer:UIPanGestureRecognizer){
+    func onTap (_ recognizer: UIPanGestureRecognizer){
         self.view.endEditing(true)
     }
     
