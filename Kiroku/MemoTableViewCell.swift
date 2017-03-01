@@ -10,8 +10,8 @@ import UIKit
 
 class MemoTableViewCell: UITableViewCell {
 
-    @IBOutlet var MemoLabel :UILabel!
-    @IBOutlet var DateLabel :UILabel!
+    @IBOutlet var memoLabel :UILabel!
+    @IBOutlet var dateLabel :UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

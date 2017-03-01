@@ -5,7 +5,7 @@
 //  Created by Aoi Sakaue on 2017/02/19.
 //  Copyright © 2017年 Sakaue Aoi. All rights reserved.
 //
-//, UITableViewDataSource ,UITableViewDelegate
+
 import UIKit
 
 class KirokuViewController: UIViewController, UITextFieldDelegate{
@@ -15,7 +15,6 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet var memoTextField: UITextField!
     @IBOutlet var dateTextField: UITextField!
-    @IBOutlet var okButton: UIButton!
 
     //UserDefaultsの設定
     var memoArray: [[String: String]] = []
@@ -28,15 +27,13 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
     
     //キーパッドのツールバー
     var toolBar:UIToolbar!
-    
-    
-// Do any additional setup after loading the view.
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //取り出すための
         if saveData.array(forKey: "MEMO") != nil {
-            memoArray = saveData.array(forKey: "MEMO")! as [[String: String]]
+            memoArray = saveData.array(forKey: "MEMO") as! [[String: String]]
         }
         
         //日付フィールドの設定
@@ -73,14 +70,12 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
     
     //タップで隠す
     func onTap (_ recognizer:UIPanGestureRecognizer){
-        memoTextField.resignFirstResponder()
-        dateTextField.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
     //toolbarのdoneボタン
     func doneButton(){
-        dateTextField.resignFirstResponder()
-        memoTextField.resignFirstResponder()
+        self.view.endEditing(true)
         toolBarBtnPush()
     }
 

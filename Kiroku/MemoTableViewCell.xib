@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Memo" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er6-Md-DGV">
@@ -35,8 +35,8 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="DateLabel" destination="Xc5-jD-IiX" id="Bdq-5J-9yF"/>
-                <outlet property="MemoLabel" destination="Er6-Md-DGV" id="xlQ-sJ-8c0"/>
+                <outlet property="dateLabel" destination="Xc5-jD-IiX" id="LYp-qq-tNS"/>
+                <outlet property="memoLabel" destination="Er6-Md-DGV" id="Ry7-b0-2I5"/>
             </connections>
         </tableViewCell>
     </objects>

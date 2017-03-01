@@ -149,11 +149,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="DateTextField" destination="2xo-NW-LaF" id="9hc-RZ-Nr1"/>
-                        <outlet property="Datelabel" destination="cog-Zh-loj" id="bik-qk-nJq"/>
-                        <outlet property="MemoTextField" destination="J6i-1v-aJu" id="3SF-y2-ezD"/>
-                        <outlet property="Memolabel" destination="Dr7-zt-lL6" id="yut-H6-e6B"/>
-                        <outlet property="OKButton" destination="A1p-sj-bB5" id="IPw-Zh-2SD"/>
+                        <outlet property="dateTextField" destination="2xo-NW-LaF" id="vec-0w-Xn2"/>
+                        <outlet property="datelabel" destination="cog-Zh-loj" id="dey-v1-nP9"/>
+                        <outlet property="memoTextField" destination="J6i-1v-aJu" id="r24-4d-USa"/>
+                        <outlet property="memolabel" destination="Dr7-zt-lL6" id="wYx-tS-sW4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rC4-mZ-VHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,7 +180,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8ab-KG-hnG" id="sbo-4p-LpJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
