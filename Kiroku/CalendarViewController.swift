@@ -78,20 +78,15 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         
         //カレンダー用
-        // 色を変数に用意しておく
-        let color1 = UIColor(
-            red: CGFloat(0.93), green: CGFloat(0.83), blue: CGFloat(0.10), alpha: CGFloat(1.0)
-        )
-        
         // 背景の色を変える
-        self.navigationController?.navigationBar.barTintColor = color1
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.93, green: 0.83, blue: 0.10, alpha: 1.0)
         //画面の幅
         let screenWidth = UIScreen.main.bounds.size.width
         //画面の高さ
         let screenHeight = UIScreen.main.bounds.size.height
         
         //iPhone4s
-        if(screenWidth == 320 && screenHeight == 480){
+        if screenWidth == 320 && screenHeight == 480 {
             
             calendarLabelIntervalX = 5
             calendarLabelX         = 45
@@ -110,7 +105,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             calendarFontSize       = 17
             
             //iPhone5またはiPhone5s
-        }else if (screenWidth == 320 && screenHeight == 568){
+        }else if screenWidth == 320 && screenHeight == 568 {
             
             calendarLabelIntervalX = 5
             calendarLabelX         = 45
@@ -129,7 +124,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             calendarFontSize       = 17
             
             //iPhone6
-        }else if (screenWidth == 375 && screenHeight == 667){
+        }else if screenWidth == 375 && screenHeight == 667 {
             
             calendarLabelIntervalX = 15
             calendarLabelX         = 50
@@ -374,7 +369,15 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if saveData.array(forKey: "MEMO") != nil {
+            memoArray = saveData.array(forKey: "MEMO")! as! [[String: String]]        }
+
+        tableView.reloadData()
+    }
+
     //タイトル表記を設定する関数
     func setupCalendarTitleLabel() {
         calendarBar.text = String("\(year!)年\(month!)月のカレンダー")
@@ -543,6 +546,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memoArray.count
     }
+    
     //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MemoTableViewCell
@@ -551,36 +555,14 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         //ID付きのセルを取得する memoArrayから取り出す
         let nowIndexPathDictionary: [String: String] =  memoArray[indexPath.row]
         
-        cell.MemoLabel.text = nowIndexPathDictionary["memo"]
-        cell.DateLabel.text = nowIndexPathDictionary["date"]
+        cell.memoLabel.text = nowIndexPathDictionary["memo"]
+        cell.dateLabel.text = nowIndexPathDictionary["date"]
         
         return cell
     }
     
     //セルが押されたときに呼ばれる
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if saveData.array(forKey: "MEMO") != nil {
-            memoArray = saveData.array(forKey: "MEMO")! as! [[String: String]]        }
-        
-        tableView.reloadData()
-    }
 
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }

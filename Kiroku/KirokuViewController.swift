@@ -10,15 +10,15 @@ import UIKit
 
 class KirokuViewController: UIViewController, UITextFieldDelegate{
     
-    @IBOutlet var Datelabel: UILabel!
-    @IBOutlet var Memolabel: UILabel!
+    @IBOutlet var datelabel: UILabel!
+    @IBOutlet var memolabel: UILabel!
     
-    @IBOutlet var MemoTextField: UITextField!
-    @IBOutlet var DateTextField: UITextField!
-    @IBOutlet var OKButton: UIButton!
+    @IBOutlet var memoTextField: UITextField!
+    @IBOutlet var dateTextField: UITextField!
+    @IBOutlet var okButton: UIButton!
 
     //UserDefaultsの設定
-    var memoArray: [AnyObject] = []
+    var memoArray: [[String: String]] = []
     let saveData = UserDefaults.standard
     
     //現在の日付取得
@@ -36,17 +36,17 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
 
         //取り出すための
         if saveData.array(forKey: "MEMO") != nil {
-            memoArray = saveData.array(forKey: "MEMO")! as [AnyObject]
+            memoArray = saveData.array(forKey: "MEMO")! as [[String: String]]
         }
         
         //日付フィールドの設定
         dateFormat.dateFormat = "yyyy年MM月dd日"
-        DateTextField.text = dateFormat.string(from: nowDate)
-        self.DateTextField.delegate = self
+        dateTextField.text = dateFormat.string(from: nowDate)
+        dateTextField.delegate = self
         
         // DatePickerの設定(日付用)
         inputDatePicker.datePickerMode = UIDatePickerMode.date
-        DateTextField.inputView = inputDatePicker
+        dateTextField.inputView = inputDatePicker
 
         
         // キーボードに表示するツールバーの表示
@@ -57,8 +57,8 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
         toolBar.tintColor = UIColor.white
         toolBar.backgroundColor = UIColor.black
         //キーボード、ピッカーにくっつく
-        DateTextField.inputAccessoryView = toolBar
-        MemoTextField.inputAccessoryView = toolBar
+        dateTextField.inputAccessoryView = toolBar
+        memoTextField.inputAccessoryView = toolBar
 
         //ツールバーにボタンを表示
         let toolBarButton = UIBarButtonItem(title: "OK", style: .done, target: self, action: #selector(KirokuViewController.doneButton))
@@ -73,14 +73,14 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
     
     //タップで隠す
     func onTap (_ recognizer:UIPanGestureRecognizer){
-        MemoTextField.resignFirstResponder()
-        DateTextField.resignFirstResponder()
+        memoTextField.resignFirstResponder()
+        dateTextField.resignFirstResponder()
     }
     
     //toolbarのdoneボタン
     func doneButton(){
-        DateTextField.resignFirstResponder()
-        MemoTextField.resignFirstResponder()
+        dateTextField.resignFirstResponder()
+        memoTextField.resignFirstResponder()
         toolBarBtnPush()
     }
 
@@ -88,7 +88,7 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
     func toolBarBtnPush(){
         
         let pickerDate = inputDatePicker.date
-        DateTextField.text = dateFormat.string(from: pickerDate)
+        dateTextField.text = dateFormat.string(from: pickerDate)
         
         self.view.endEditing(true)
     }
@@ -100,9 +100,9 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
     
     //保存ボタンが呼ばれたときに
     @IBAction func save() {
-        let memo = ["memo":MemoTextField.text!,"date":DateTextField.text!]
+        let memo = ["memo": memoTextField.text!,"date": dateTextField.text!]
         
-        memoArray.append(memo as AnyObject)
+        memoArray.append(memo)
         
         saveData.set(memoArray, forKey: "MEMO")
         
@@ -122,19 +122,8 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
         )
         self.present(alert, animated: true, completion:nil)
         
-        MemoTextField.text = ""
-        DateTextField.text = ""
+        memoTextField.text = ""
+        dateTextField.text = ""
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
