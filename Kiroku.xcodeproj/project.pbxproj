@@ -32,12 +32,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		582517D51E59AF0D00FE112C /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = ../SecondViewController.swift; sourceTree = "<group>"; };
-		582517D71E59AF2D00FE112C /* KirokuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirokuViewController.swift; sourceTree = SOURCE_ROOT; };
-		582517D91E59B11500FE112C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = ../CalendarViewController.swift; sourceTree = "<group>"; };
-		5857176D1E62E41E000DDAF3 /* CalendarLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarLogic.swift; path = ../CalendarLogic.swift; sourceTree = "<group>"; };
-		588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoTableViewCell.swift; path = ../MemoTableViewCell.swift; sourceTree = "<group>"; };
-		588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MemoTableViewCell.xib; path = ../MemoTableViewCell.xib; sourceTree = "<group>"; };
+		582517D51E59AF0D00FE112C /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		582517D71E59AF2D00FE112C /* KirokuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirokuViewController.swift; sourceTree = "<group>"; };
+		582517D91E59B11500FE112C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarViewController.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		5857176D1E62E41E000DDAF3 /* CalendarLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarLogic.swift; path = CalendarLogic.swift; sourceTree = "<group>"; };
+		588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoTableViewCell.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
+		588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MemoTableViewCell.xib; path = MemoTableViewCell.xib; sourceTree = "<group>"; };
 		58F8FF4A1E54794400BE0BEF /* Kiroku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiroku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F8FF4D1E54794400BE0BEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58F8FF4F1E54794400BE0BEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,18 +89,18 @@
 		58F8FF4C1E54794400BE0BEF /* Kiroku */ = {
 			isa = PBXGroup;
 			children = (
+				58F8FF4D1E54794400BE0BEF /* AppDelegate.swift */,
+				58F8FF541E54794400BE0BEF /* Assets.xcassets */,
 				5857176D1E62E41E000DDAF3 /* CalendarLogic.swift */,
 				582517D91E59B11500FE112C /* CalendarViewController.swift */,
+				58F8FF591E54794400BE0BEF /* Info.plist */,
 				582517D71E59AF2D00FE112C /* KirokuViewController.swift */,
-				582517D51E59AF0D00FE112C /* SecondViewController.swift */,
+				58F8FF561E54794400BE0BEF /* LaunchScreen.storyboard */,
+				58F8FF511E54794400BE0BEF /* Main.storyboard */,
 				588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */,
 				588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */,
-				58F8FF511E54794400BE0BEF /* Main.storyboard */,
-				58F8FF4D1E54794400BE0BEF /* AppDelegate.swift */,
+				582517D51E59AF0D00FE112C /* SecondViewController.swift */,
 				58F8FF4F1E54794400BE0BEF /* ViewController.swift */,
-				58F8FF541E54794400BE0BEF /* Assets.xcassets */,
-				58F8FF561E54794400BE0BEF /* LaunchScreen.storyboard */,
-				58F8FF591E54794400BE0BEF /* Info.plist */,
 			);
 			path = Kiroku;
 			sourceTree = "<group>";
@@ -108,8 +108,8 @@
 		58F8FF611E54794400BE0BEF /* KirokuUITests */ = {
 			isa = PBXGroup;
 			children = (
-				58F8FF621E54794400BE0BEF /* KirokuUITests.swift */,
 				58F8FF641E54794400BE0BEF /* Info.plist */,
+				58F8FF621E54794400BE0BEF /* KirokuUITests.swift */,
 			);
 			path = KirokuUITests;
 			sourceTree = "<group>";
@@ -255,6 +255,7 @@
 				58F8FF521E54794400BE0BEF /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		58F8FF561E54794400BE0BEF /* LaunchScreen.storyboard */ = {
@@ -263,6 +264,7 @@
 				58F8FF571E54794400BE0BEF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
