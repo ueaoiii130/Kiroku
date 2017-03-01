@@ -58,7 +58,7 @@ class KirokuViewController: UIViewController, UITextFieldDelegate{
         memoTextField.inputAccessoryView = toolBar
 
         //ツールバーにボタンを表示
-        let toolBarButton = UIBarButtonItem(title: "OK", style: .done, target: self, action: #selector(KirokuViewController.doneButton))
+        let toolBarButton = UIBarButtonItem(title: "OK", style: .done, target: self, action: #selector(doneButton))
         toolBar.items = [toolBarButton]
         
         //ボタンの設定

@@ -82,11 +82,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.93, green: 0.83, blue: 0.10, alpha: 1.0)
         //画面の幅
         let screenWidth = UIScreen.main.bounds.size.width
-        //画面の高さ
-        let screenHeight = UIScreen.main.bounds.size.height
         
         //iPhone4s
-        if screenWidth == 320 && screenHeight == 480 {
+        if screenWidth == 320 {
             
             calendarLabelIntervalX = 5
             calendarLabelX         = 45
@@ -105,7 +103,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             calendarFontSize       = 17
             
             //iPhone5またはiPhone5s
-        }else if screenWidth == 320 && screenHeight == 568 {
+        }else if screenWidth == 320 {
             
             calendarLabelIntervalX = 5
             calendarLabelX         = 45
@@ -124,7 +122,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             calendarFontSize       = 17
             
             //iPhone6
-        }else if screenWidth == 375 && screenHeight == 667 {
+        }else if screenWidth == 375 {
             
             calendarLabelIntervalX = 15
             calendarLabelX         = 50
@@ -146,7 +144,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             self.nextMonthButton.frame = CGRect(x: 314, y: 438, width: CGFloat(calendarSize), height: CGFloat(calendarSize))
             
             //iPhone6 plus
-        }else if (screenWidth == 414 && screenHeight == 736){
+        }else if screenWidth == 414{
             
             calendarLabelIntervalX = 15
             calendarLabelX         = 55
@@ -175,11 +173,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         //現在の日付を取得する
         now = Date()
         //inUnit:で指定した単位（月）の中で、rangeOfUnit:で指定した単位（日）が取り得る範囲
-        let calendar: Calendar = Calendar(identifier: Calendar.Identifier.gregorian)
-        let range: NSRange = (calendar as NSCalendar).range(of: NSCalendar.Unit.day, in:NSCalendar.Unit.month, for:now)
+        let calendar: Calendar = Calendar(identifier: .gregorian)
+        let range: NSRange = (calendar as NSCalendar).range(of: .day, in: .month, for: now)
         
         //最初にメンバ変数に格納するための現在日付の情報を取得する
-        comps = (calendar as NSCalendar).components([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day, NSCalendar.Unit.weekday],from:now)
+        comps = (calendar as NSCalendar).components([.year, .month, .day, .weekday],from: now)
         
         //年月日と最後の日付と曜日を取得(NSIntegerをintへのキャスト不要)
         let orgYear: NSInteger      = comps.year!
@@ -196,7 +194,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         //曜日ラベル初期定義
-        let monthName:[String] = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+        let monthName: [String] = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
         
         //曜日ラベルを動的に配置
         setupCalendarLabel(monthName)
@@ -204,6 +202,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         //初期表示時のカレンダーをセットアップする
         setupCurrentCalendar()
     }
+
     //メモリーが重くなり処理しきれなくなった際に呼ばれるメソッド
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -232,17 +231,13 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             if i == 0 {
                 
                 //RGBカラーの設定は小数値をCGFloat型にしてあげる
-                calendarBaseLabel.textColor = UIColor(
-                    red: CGFloat(0.831), green: CGFloat(0.349), blue: CGFloat(0.224), alpha: CGFloat(1.0)
-                )
+                calendarBaseLabel.textColor = UIColor(red: 0.831, green: 0.349, blue: 0.224, alpha: 1.0)
                 
                 //土曜日の場合は青色を指定
             } else if i == 6 {
                 
                 //RGBカラーの設定は小数値をCGFloat型にしてあげる
-                calendarBaseLabel.textColor = UIColor(
-                    red: CGFloat(0.400), green: CGFloat(0.471), blue: CGFloat(0.980), alpha: CGFloat(1.0)
-                )
+                calendarBaseLabel.textColor = UIColor(red: 0.400, green: 0.471, blue: 0.980, alpha: 1.0)
                 
                 //平日の場合は灰色を指定
             } else {
@@ -254,7 +249,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             
             //曜日ラベルの配置
             calendarBaseLabel.text = String(array[i])
-            calendarBaseLabel.textAlignment = NSTextAlignment.center
+            calendarBaseLabel.textAlignment = .center
             calendarBaseLabel.font = UIFont(name: "System", size: CGFloat(calendarLabelFontSize))
             self.view.addSubview(calendarBaseLabel)
         }
@@ -453,9 +448,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     func recreateCalendarParameter(_ currentCalendar: Calendar, currentDate: Date) {
         
         //引数で渡されたものをもとに日付の情報を取得する
-        let currentRange: NSRange = (currentCalendar as NSCalendar).range(of: NSCalendar.Unit.day, in:NSCalendar.Unit.month, for:currentDate)
+        let currentRange: NSRange = (currentCalendar as NSCalendar).range(of: .day, in: .month, for: currentDate)
         
-        comps = (currentCalendar as NSCalendar).components([NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day, NSCalendar.Unit.weekday],from:currentDate)
+        comps = (currentCalendar as NSCalendar).components([.year, .month, .day, .weekday],from: currentDate)
         
         //年月日と最後の日付と曜日を取得(NSIntegerをintへのキャスト不要)
         let currentYear: NSInteger      = comps.year!
