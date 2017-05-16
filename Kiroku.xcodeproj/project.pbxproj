@@ -10,6 +10,8 @@
 		582517D61E59AF0D00FE112C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582517D51E59AF0D00FE112C /* SecondViewController.swift */; };
 		582517D81E59AF2D00FE112C /* KirokuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582517D71E59AF2D00FE112C /* KirokuViewController.swift */; };
 		582517DA1E59B11500FE112C /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582517D91E59B11500FE112C /* CalendarViewController.swift */; };
+		5830AF2D1ECAD8CC00E257D1 /* next_k.png in Resources */ = {isa = PBXBuildFile; fileRef = 5830AF2B1ECAD8CC00E257D1 /* next_k.png */; };
+		5830AF2E1ECAD8CC00E257D1 /* prev_k.png in Resources */ = {isa = PBXBuildFile; fileRef = 5830AF2C1ECAD8CC00E257D1 /* prev_k.png */; };
 		5857176E1E62E41E000DDAF3 /* CalendarLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857176D1E62E41E000DDAF3 /* CalendarLogic.swift */; };
 		588E21181E5D8414001E5F5C /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */; };
 		588E21191E5D8414001E5F5C /* MemoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */; };
@@ -35,6 +37,8 @@
 		582517D51E59AF0D00FE112C /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		582517D71E59AF2D00FE112C /* KirokuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KirokuViewController.swift; sourceTree = "<group>"; };
 		582517D91E59B11500FE112C /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		5830AF2B1ECAD8CC00E257D1 /* next_k.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_k.png; sourceTree = "<group>"; };
+		5830AF2C1ECAD8CC00E257D1 /* prev_k.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev_k.png; sourceTree = "<group>"; };
 		5857176D1E62E41E000DDAF3 /* CalendarLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarLogic.swift; sourceTree = "<group>"; };
 		588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
 		588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoTableViewCell.xib; sourceTree = "<group>"; };
@@ -89,17 +93,19 @@
 		58F8FF4C1E54794400BE0BEF /* Kiroku */ = {
 			isa = PBXGroup;
 			children = (
+				5830AF2B1ECAD8CC00E257D1 /* next_k.png */,
+				5830AF2C1ECAD8CC00E257D1 /* prev_k.png */,
 				58F8FF511E54794400BE0BEF /* Main.storyboard */,
 				58F8FF4D1E54794400BE0BEF /* AppDelegate.swift */,
-				5857176D1E62E41E000DDAF3 /* CalendarLogic.swift */,
-				582517D91E59B11500FE112C /* CalendarViewController.swift */,
-				58F8FF591E54794400BE0BEF /* Info.plist */,
-				582517D71E59AF2D00FE112C /* KirokuViewController.swift */,
-				58F8FF561E54794400BE0BEF /* LaunchScreen.storyboard */,
-				588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */,
-				588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */,
-				582517D51E59AF0D00FE112C /* SecondViewController.swift */,
 				58F8FF4F1E54794400BE0BEF /* ViewController.swift */,
+				582517D51E59AF0D00FE112C /* SecondViewController.swift */,
+				582517D91E59B11500FE112C /* CalendarViewController.swift */,
+				582517D71E59AF2D00FE112C /* KirokuViewController.swift */,
+				588E21161E5D8414001E5F5C /* MemoTableViewCell.swift */,
+				5857176D1E62E41E000DDAF3 /* CalendarLogic.swift */,
+				58F8FF591E54794400BE0BEF /* Info.plist */,
+				58F8FF561E54794400BE0BEF /* LaunchScreen.storyboard */,
+				588E21171E5D8414001E5F5C /* MemoTableViewCell.xib */,
 				58F8FF541E54794400BE0BEF /* Assets.xcassets */,
 			);
 			path = Kiroku;
@@ -199,10 +205,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5830AF2E1ECAD8CC00E257D1 /* prev_k.png in Resources */,
 				58F8FF581E54794400BE0BEF /* LaunchScreen.storyboard in Resources */,
 				58F8FF551E54794400BE0BEF /* Assets.xcassets in Resources */,
 				58F8FF531E54794400BE0BEF /* Main.storyboard in Resources */,
 				588E21191E5D8414001E5F5C /* MemoTableViewCell.xib in Resources */,
+				5830AF2D1ECAD8CC00E257D1 /* next_k.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -79,7 +79,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         //カレンダー用
         // 背景の色を変える
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.93, green: 0.83, blue: 0.10, alpha: 1.0)
+//        self.navigationController?.navigationBar.barTintColor = UIColor(red: 0.93, green: 0.83, blue: 0.10, alpha: 1.0)
+        
         //画面の幅
         let screenWidth = UIScreen.main.bounds.size.width
         
@@ -375,7 +376,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 
     //タイトル表記を設定する関数
     func setupCalendarTitleLabel() {
-        calendarBar.text = String("\(year!)年\(month!)月のカレンダー")
+        calendarBar.text = String("\(year!)年\(month!)月")
     }
     
     //現在（初期表示時）の年月に該当するデータを取得する関数
@@ -487,9 +488,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     //カレンダーボタンをタップした時のアクション
+    //カレンダーの日付をタップした時にその日に格納されたデータをTableViewに表示する
     func buttonTapped(_ button: UIButton) {
         
-        //@todo:画面遷移等の処理を書くことができます。
         
         //コンソール表示
         print("\(year!)年\(month!)月\(button.tag)日が選択されました！")
@@ -542,11 +543,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return memoArray.count
     }
     
-    //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MemoTableViewCell
-        
-        //WordList見て直し
+    
         //ID付きのセルを取得する memoArrayから取り出す
         let nowIndexPathDictionary: [String: String] =  memoArray[indexPath.row]
         
